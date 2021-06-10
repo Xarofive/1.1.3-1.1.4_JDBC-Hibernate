@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserService {
             preparedStatement.execute();
             System.out.println("Пользователь удален");
         } catch (SQLException e) {
-
+            System.out.println("Произошла ошибка");
         }
     }
 

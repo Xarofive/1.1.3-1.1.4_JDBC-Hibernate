@@ -56,7 +56,7 @@ public class UserDaoJDBCImpl implements UserDao {
             preparedStatement.execute();
             System.out.println("Пользователь удален");
         } catch (SQLException e) {
-
+            System.out.println("Произошла ошибка");
         }
     }
 
