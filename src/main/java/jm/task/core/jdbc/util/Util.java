@@ -29,7 +29,6 @@ public class Util {
         settings.put(Environment.URL, URL);
         settings.put(Environment.USER, USERNAME);
         settings.put(Environment.PASS, PASSWORD);
-        settings.put(Environment.AUTOCOMMIT, true);
 
         configuration.setProperties(settings);
         configuration.addAnnotatedClass(User.class);
