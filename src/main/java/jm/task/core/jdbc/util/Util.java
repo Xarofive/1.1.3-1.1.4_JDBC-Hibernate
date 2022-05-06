@@ -18,9 +18,27 @@ public class Util {
     private static final String USERNAME = "admin";
     private static final String PASSWORD = "1234";
 
+    public static Connection connection;
+
     public static Connection getConnection() throws SQLException {
-        DriverManager.registerDriver(new Driver());
-        return DriverManager.getConnection(URL, USERNAME, PASSWORD);
+        if (connection == null || connection.isClosed()) {
+            DriverManager.registerDriver(new Driver());
+            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+        }
+        return connection;
+    }
+
+    public static void closeConnetion() {
+        try {
+            if (connection != null && !connection.isClosed()) {
+                getConnection().close();
+                System.out.println("Соединение с БД закрыто");
+            } else {
+                System.out.println("Соединение с БД не закрыто, так как его нет");
+            }
+        } catch (SQLException e) {
+            System.out.println("Произошла ошибка при закрытии соединения с БД");
+        }
     }
 
     public static SessionFactory getSessionFactory() {
