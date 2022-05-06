@@ -1,56 +1,53 @@
 package jm.task.core.jdbc.service;
 
+import jm.task.core.jdbc.dao.UserDao;
+import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
 import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
 import jm.task.core.jdbc.model.User;
 
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
-    private final UserDaoJDBCImpl userDaoJDBC;
+    private final UserDao userDao;
 
     public UserServiceImpl() {
-        this.userDaoJDBC = new UserDaoJDBCImpl();
+//        this.userDao = new UserDaoJDBCImpl();
+        this.userDao = new UserDaoHibernateImpl();
     }
 
-    public UserServiceImpl(UserDaoJDBCImpl userDaoJDBC) {
-        this.userDaoJDBC = new UserDaoJDBCImpl();
+    public UserServiceImpl(UserDaoJDBCImpl userDao) {
+//        this.userDao = new UserDaoJDBCImpl();
+        this.userDao = new UserDaoHibernateImpl();
     }
 
     @Override
     public void createUsersTable() {
-        userDaoJDBC.createUsersTable();
-        System.out.println("Таблица создана");
+        userDao.createUsersTable();
     }
 
     @Override
     public void dropUsersTable() {
-        userDaoJDBC.dropUsersTable();
-        System.out.println("Таблица удалена");
+        userDao.dropUsersTable();
     }
 
     @Override
     public void saveUser(String name, String lastName, byte age) {
-        userDaoJDBC.saveUser(name, lastName, age);
-        System.out.printf("User с именем – %s добавлен в базу данных\n", name);
+        userDao.saveUser(name, lastName, age);
     }
 
     @Override
     public void removeUserById(long id) {
-        userDaoJDBC.removeUserById(id);
-        System.out.println("Пользователь удален");
+        userDao.removeUserById(id);
     }
 
     @Override
     public List<User> getAllUsers() {
-        List<User> users = userDaoJDBC.getAllUsers();
-        System.out.println("Получен список всех пользователей");
-        return users;
+        return userDao.getAllUsers();
     }
 
     @Override
     public void cleanUsersTable() {
-        userDaoJDBC.cleanUsersTable();
-        System.out.println("Таблица очищена");
+        userDao.cleanUsersTable();
     }
 
 }
