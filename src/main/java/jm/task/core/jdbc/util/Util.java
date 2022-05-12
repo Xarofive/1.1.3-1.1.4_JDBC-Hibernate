@@ -24,22 +24,23 @@ public class Util {
         if (connection == null || connection.isClosed()) {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            connection.setAutoCommit(false);
         }
         return connection;
     }
 
-    public static void closeConnetion() {
-        try {
-            if (connection != null && !connection.isClosed()) {
-                getConnection().close();
-                System.out.println("Соединение с БД закрыто");
-            } else {
-                System.out.println("Соединение с БД не закрыто, так как его нет");
-            }
-        } catch (SQLException e) {
-            System.out.println("Произошла ошибка при закрытии соединения с БД");
-        }
-    }
+//    public static void closeConnetion() {
+//        try {
+//            if (connection != null && !connection.isClosed()) {
+//                getConnection().close();
+//                System.out.println("Соединение с БД закрыто");
+//            } else {
+//                System.out.println("Соединение с БД не закрыто, так как его нет");
+//            }
+//        } catch (SQLException e) {
+//            System.out.println("Произошла ошибка при закрытии соединения с БД");
+//        }
+//    }
 
     public static SessionFactory getSessionFactory() {
         Configuration configuration = new Configuration();

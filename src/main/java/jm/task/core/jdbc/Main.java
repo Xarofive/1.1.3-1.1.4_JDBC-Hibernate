@@ -21,6 +21,6 @@ public class Main {
         }
         userService.cleanUsersTable();
         userService.dropUsersTable();
-        Util.closeConnetion();
+//        Util.closeConnetion();
     }
 }
