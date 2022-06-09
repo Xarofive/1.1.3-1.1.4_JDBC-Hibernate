@@ -14,9 +14,9 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class Util {
-    private static final String URL = "jdbc:mysql://localhost:3306/myKataProject1";
-    private static final String USERNAME = "admin";
-    private static final String PASSWORD = "1234";
+    private static final String URL = "jdbc:mysql://localhost:3306/foo";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "4815162342v";
 
     public static Connection connection;
 
@@ -29,7 +29,7 @@ public class Util {
         return connection;
     }
 
-//    public static void closeConnetion() {
+//    public static void closeConnection() {
 //        try {
 //            if (connection != null && !connection.isClosed()) {
 //                getConnection().close();
