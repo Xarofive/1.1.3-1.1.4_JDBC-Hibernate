@@ -4,6 +4,7 @@ import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.service.UserServiceImpl;
 import jm.task.core.jdbc.util.Util;
 
+import java.net.URL;
 import java.util.List;
 
 public class Main {
@@ -19,8 +20,10 @@ public class Main {
         for (User user : userList) {
             System.out.println(user.toString());
         }
-        userService.cleanUsersTable();
-        userService.dropUsersTable();
+
+//        userService.cleanUsersTable();
+//        userService.dropUsersTable();
 //        Util.closeConnection();
+
     }
 }

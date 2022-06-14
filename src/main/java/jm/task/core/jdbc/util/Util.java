@@ -29,18 +29,18 @@ public class Util {
         return connection;
     }
 
-//    public static void closeConnection() {
-//        try {
-//            if (connection != null && !connection.isClosed()) {
-//                getConnection().close();
-//                System.out.println("Соединение с БД закрыто");
-//            } else {
-//                System.out.println("Соединение с БД не закрыто, так как его нет");
-//            }
-//        } catch (SQLException e) {
-//            System.out.println("Произошла ошибка при закрытии соединения с БД");
-//        }
-//    }
+    public static void closeConnection() {
+        try {
+            if (connection != null && !connection.isClosed()) {
+                getConnection().close();
+                System.out.println("Соединение с БД закрыто");
+            } else {
+                System.out.println("Соединение с БД не закрыто, так как его нет");
+            }
+        } catch (SQLException e) {
+            System.out.println("Произошла ошибка при закрытии соединения с БД");
+        }
+    }
 
     public static SessionFactory getSessionFactory() {
         Configuration configuration = new Configuration();

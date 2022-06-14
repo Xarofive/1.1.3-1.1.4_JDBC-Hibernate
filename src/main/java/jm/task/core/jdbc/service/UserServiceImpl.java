@@ -11,8 +11,8 @@ public class UserServiceImpl implements UserService {
     private final UserDao userDao;
 
     public UserServiceImpl() {
-        this.userDao = new UserDaoJDBCImpl();
-//        this.userDao = new UserDaoHibernateImpl();
+//        this.userDao = new UserDaoJDBCImpl();
+        this.userDao = new UserDaoHibernateImpl();
     }
 
     @Override
